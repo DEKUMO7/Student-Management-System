@@ -10,4 +10,6 @@ class student:
         print("Roll No:",self.rollno)
 # Example usage
 student1 = student()
-student1.display()
+
+with open("student.txt","a")as f:
+    f.write(f"{student1.name}\n{student1.age}\n{student1.rollno}\n")
