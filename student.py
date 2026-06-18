@@ -12,5 +12,5 @@ while True:
     
     student1 = student()
 
-    with open("student.txt","a")as f:
-        f.write(f"Name: {student1.name}\nAge: {student1.age}\nRoll No: {student1.rollno}\n")
+    with open("student.txt","a")as file:
+        file.write(f"Name: {student1.name}\nAge: {student1.age}\nRoll No: {student1.rollno}\n")
