@@ -1,15 +1,23 @@
-while True:
-    a = input("Do you want to add student detaails? (y/n):")
-    if a == "y":
-        class student:
-            def __init__(self):
-                self.name = input("Enter Name: ")
-                self.age = int(input("Enter Age: "))
-                self.rollno = int(input("Enter Roll No: "))
+class student:
+    def __init__(self, name, age, rollno):
+        self.name = name
+        self.age = age
+        self.rollno = rollno
 
-    elif a == "n":
+while True:
+    name = input("Enter Name: ")
+    if name.lower() == "exit" or name.lower() == "stop" or name.lower() == "quit":
+        print("program stopped")
         break
-    
+    age = input("Enter Age: ")
+    if age.lower() == "exit" or age.lower() == "stop" or age.lower() == "quit":
+        print("program stopped")
+        break
+    rollno = input("Enter Roll No: ")
+    if rollno.lower() == "exit" or rollno.lower() == "stop" or rollno.lower() == "quit":
+        print("program stopped")
+        break
+
     student1 = student()
 
     with open("student.txt","a")as file:
