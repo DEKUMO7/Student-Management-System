@@ -1,8 +1,11 @@
 class student:
-    def __init__(self, name, age, rollno):
+    def __init__(self, name, age, rollno,course):
         self.name = name
         self.age = age
         self.rollno = rollno
+        self.course = course
+
+student_no = 1
 
 while True:
     name = input("Enter Name: ")
@@ -17,8 +20,17 @@ while True:
     if rollno.lower() == "exit" or rollno.lower() == "stop" or rollno.lower() == "quit":
         print("program stopped")
         break
-
-    student1 = student()
+    
+    course = input("Enter Course: ")
+    if course.lower() == "exit" or course.lower() == "stop" or course.lower() == "quit":
+        print("program stopped")
+        break
+    student1 = student(name, age, rollno, course)
 
     with open("student.txt","a")as file:
-        file.write(f"Name: {student1.name}\nAge: {student1.age}\nRoll No: {student1.rollno}\n")
+        file.write(f"Seat No: {student_no}\n Name: {student1.name}\nAge: {student1.age}\nRoll No: {student1.rollno}\nCourse: {student1.course}\n\n")
+
+    if student_no == 120:
+        print("Maximum number of students reached.")
+        break
+    student_no += 1
