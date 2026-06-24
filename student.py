@@ -8,38 +8,47 @@ class student:
 student_no = 1
 
 while True:
+    
     while True:
-        name = input("Enter Name: ").strip()
-        if name.lower() == "exit" or name.lower() == "stop" or name.lower() == "quit":
-            print("program stopped")
-            break
-        elif name == "":
+        name = str(input("Enter Name: ")).strip()
+        if name == "":
             print("pleace enetr name first...")
-        
-    while True:
-        age = input("Enter Age: ").strip()
-        if age.lower() == "exit" or age.lower() == "stop" or age.lower() == "quit":
-            print("program stopped")
+        elif name == name:
             break
-        elif age == "":
+    
+    if name.lower() == "exit" or name.lower() == "stop" or name.lower() == "quit":
+        print("program stopped...")
+        break
+
+    while True:
+        age = (input("Enter Age: ")).strip()
+        if age == "":
             print("pleace enetr age first...")
+        elif age == age:
+            break
+    if age.lower() == "exit" or age.lower() == "stop" or age.lower() == "quit":
+        print("program stopped...")
+        break
     
     while True:
-        rollno = input("Enter Roll No: ").strip()
-        if rollno.lower() == "exit" or rollno.lower() == "stop" or rollno.lower() == "quit":
-            print("program stopped")
-            break
-        elif rollno == "":
+        rollno = input("Enter RollNo: ").strip()
+        if rollno == "":
             print("pleace enetr rollno first...")
-    
+        elif rollno == rollno:
+            break
+    if rollno.lower() == "exit" or rollno.lower() == "stop" or rollno.lower() == "quit":
+        print("program stopped...")
+        break
+
     while True:
         course = input("Enter Course: ").strip()
-        if course.lower() == "exit" or course.lower() == "stop" or course.lower() == "quit":
-            print("program stopped")
-            break
-        elif course == "":
+        if course == "":
             print("pleace enetr course first...")
-    
+        elif course == course:
+            break
+    if course.lower() == "exit" or course.lower() == "stop" or course.lower() == "quit":
+        print("program stopped...")
+        break
 
     student1 = student(name, age, rollno, course)
 
