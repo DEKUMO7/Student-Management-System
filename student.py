@@ -52,10 +52,20 @@ while True:
 
     student1 = student(name, age, rollno, course)
 
+    try:
+        with open("student.txt","r") as file:
+            for line in file:
+                if line.startswith("Seat No:"):
+                    student_no = int(line.split(":")[1].strip()) + 1
+    except FileNotFoundError:
+            pass
+
     with open("student.txt","a")as file:
-        file.write(f"Seat No: {student_no}\n Name: {student1.name}\nAge: {student1.age}\nRoll No: {student1.rollno}\nCourse: {student1.course}\n\n")
+        file.write(f"Seat No: {student_no}\n" f" Name: {student1.name}\n" f" Age: {student1.age}\n" f" Roll No: {student1.rollno}\n" f" Course: {student1.course}\n\n")
 
     if student_no == 120:
         print("Maximum number of students reached.")
         break
+    print("Student Data Successfully Added...")
+
     student_no += 1
