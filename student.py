@@ -20,6 +20,27 @@ while True:
         print("program stopped...")
         break
 
+    if name.lower() == "search student":
+        a = input("Enter RollNo: ").strip()
+        with open("student.txt","r")as file:
+            lines = file.readlines()
+        found = False
+        for i in range(len(lines)):
+            if lines[i].strip() == f"Roll No: {a}":
+                print()
+                print("STUDENT DETAILS ==>")
+                print()
+                print(lines[i-3].strip())
+                print(lines[i-2].strip())
+                print(lines[i-1].strip())
+                print(lines[i].strip())
+                print(lines[i+1].strip())
+                print()
+                found = True
+                break
+        if not found:
+            print("student not found...")
+        continue
     while True:
         age = (input("Enter Age: ")).strip()
         if age == "":
@@ -30,6 +51,28 @@ while True:
         print("program stopped...")
         break
     
+    if age.lower() == "search student":
+        a = input("Enter RollNo: ").strip()
+        with open("student.txt","r")as file:
+            lines = file.readlines()
+        found = False
+        for i in range(len(lines)):
+            if lines[i].strip() == f"Roll No: {a}":
+                print()
+                print("STUDENT DETAILS ==>")
+                print()
+                print(lines[i-3].strip())
+                print(lines[i-2].strip())
+                print(lines[i-1].strip())
+                print(lines[i].strip())
+                print(lines[i+1].strip())
+                print()
+                found = True
+                break
+        if not found:
+            print("student not found...")
+        continue
+
     while True:
         rollno = input("Enter RollNo: ").strip()
         if rollno == "":
@@ -39,6 +82,28 @@ while True:
     if rollno.lower() == "exit" or rollno.lower() == "stop" or rollno.lower() == "quit":
         print("program stopped...")
         break
+    
+    if rollno.lower() == "search student":
+        a = input("Enter RollNo: ").strip()
+        with open("student.txt","r")as file:
+            lines = file.readlines()
+        found = False
+        for i in range(len(lines)):
+            if lines[i].strip() == f"Roll No: {a}":
+                print()
+                print("STUDENT DETAILS ==>")
+                print()
+                print(lines[i-3].strip())
+                print(lines[i-2].strip())
+                print(lines[i-1].strip())
+                print(lines[i].strip())
+                print(lines[i+1].strip())
+                print()
+                found = True
+                break
+        if not found:
+            print("student not found...")
+        continue
 
     while True:
         course = input("Enter Course: ").strip()
@@ -49,6 +114,28 @@ while True:
     if course.lower() == "exit" or course.lower() == "stop" or course.lower() == "quit":
         print("program stopped...")
         break
+    
+    if course.lower() == "search student":
+        a = input("Enter RollNo: ").strip()
+        with open("student.txt","r")as file:
+            lines = file.readlines()
+        found = False
+        for i in range(len(lines)):
+            if lines[i].strip() == f"Roll No: {a}":
+                print()
+                print("STUDENT DETAILS ==>")
+                print()
+                print(lines[i-3].strip())
+                print(lines[i-2].strip())
+                print(lines[i-1].strip())
+                print(lines[i].strip())
+                print(lines[i+1].strip())
+                print()
+                found = True
+                break
+        if not found:
+            print("student not found...")
+        continue
 
     student1 = student(name, age, rollno, course)
 
@@ -67,5 +154,3 @@ while True:
         print("Maximum number of students reached.")
         break
     print("Student Data Successfully Added...")
-
-    student_no += 1
