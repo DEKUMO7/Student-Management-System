@@ -41,6 +41,39 @@ while True:
         if not found:
             print("student not found...")
         continue
+    
+    if name.lower() == "delete student":
+        roll = input("Enter Roll Number to delete: ").strip()
+
+        with open("student.txt", "r") as file:
+            lines = file.readlines()
+
+        new_data = []
+        i = 0
+        found = False
+
+        while i < len(lines):
+            if lines[i].startswith("Seat No:"):
+                students = lines[i:i+5]   # Seat, Name, Age, Roll, Course, blank line
+
+                if students[3].strip() == f"Roll No: {roll}":
+                    found = True
+                else:
+                    new_data.extend(students)
+
+                i += 5
+            else:
+                i += 1
+
+        with open("student.txt", "w") as file:
+            file.writelines(new_data)
+
+        if found:
+            print("Student deleted successfully!")
+        else:
+            print("Student not found!")
+        continue
+    
     while True:
         age = (input("Enter Age: ")).strip()
         if age == "":
