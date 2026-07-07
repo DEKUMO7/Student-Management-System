@@ -33,7 +33,49 @@ def add_student():
         writer = csv.writer(file)
         writer.writerow([name,roll,age,course])
 
+def search_student():
+    roll = input("Enter Student RollNo to search: ").strip()
+    with open("student.csv", "r") as file:
+        reader = csv.reader(file)
+        for row in reader:
+            if row[1] == roll:
+                print(f"Name: {row[0]}, RollNo: {row[1]}, Age: {row[2]}, Course: {row[3]}")
+                return
+        print("Student not found.")
 
+def delete_student():
+    roll = input("Enter Student RollNo to delete: ").strip()
+    rows = []
+    with open("student.csv", "r") as file:
+        reader = csv.reader(file)
+        for row in reader:
+            if row[1] != roll:
+                rows.append(row)
+    
+    with open("student.csv", "w", newline="") as file:
+        writer = csv.writer(file)
+        writer.writerows(rows)
+    print("Student deleted if existed.")
+
+def update_student():
+    roll = input("Enter Student RollNo to update: ").strip()
+    rows = []
+    with open("student.csv", "r") as file:
+        reader = csv.reader(file)
+        for row in reader:
+            if row[1] == roll:
+                print(f"Current Details - Name: {row[0]}, Age: {row[2]}, Course: {row[3]}")
+                name = input("Enter new name (or press Enter to keep current): ").strip() or row[0]
+                age = input("Enter new age (or press Enter to keep current): ").strip() or row[2]
+                course = input("Enter new course (or press Enter to keep current): ").strip() or row[3]
+                rows.append([name, roll, age, course])
+            else:
+                rows.append(row)
+
+    with open("student.csv", "w", newline="") as file:
+        writer = csv.writer(file)
+        writer.writerows(rows)
+    print("Student updated if existed.")
 
 while True:
     a = input("ADD / STOP / SEARCH / DELETE / UPDATE: ").strip()
@@ -43,3 +85,12 @@ while True:
     if a.lower() == "stop":
         print("program stoped...")
         break
+    
+    if a.lower() == "search":
+        search_student()
+
+    if a.lower() == "delete":
+        delete_student()
+
+    if a.lower() == "update":
+        update_student()
