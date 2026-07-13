@@ -35,7 +35,7 @@ Student-Management-System/
 
 ### 1. Clone the repository
 
-git clone https://github.com/YOUR_USERNAME/Student-Management-System.git
+git clone https://github.com/DEKUMO7/Student-Management-System.git
 ### 2. Open the project folder
 
 cd Student-Management-System
