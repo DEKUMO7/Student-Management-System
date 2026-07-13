@@ -29,9 +29,14 @@ def add_student():
         else:
             break
 
-    with open ("student.csv","a",newline="")as file:
+    with open ("student.csv",mode="a",newline="")as file:
         writer = csv.writer(file)
-        writer.writerow([name,roll,age,course])
+        if file.tell() == 0:
+            writer.writerow(['Name', 'Roll No', 'Age', 'Course'])
+    
+    with open ("student.csv",mode="a",newline="")as file:
+        writer = csv.writer(file)
+        writer.writerow([name, roll, age, course])
 
 def search_student():
     roll = input("Enter Student RollNo to search: ").strip()
@@ -64,7 +69,7 @@ def update_student():
         reader = csv.reader(file)
         for row in reader:
             if row[1] == roll:
-                print(f"Current Details - Name: {row[0]}, Age: {row[2]}, Course: {row[3]}")
+                print(f"Current Details - Name: {row[0]}, Roll: {row[1]}, Age: {row[2]}, Course: {row[3]}")
                 name = input("Enter new name (or press Enter to keep current): ").strip() or row[0]
                 age = input("Enter new age (or press Enter to keep current): ").strip() or row[2]
                 course = input("Enter new course (or press Enter to keep current): ").strip() or row[3]
@@ -81,7 +86,9 @@ while True:
     a = input("ADD / STOP / SEARCH / DELETE / UPDATE: ").strip()
     if a.lower() == "add":
         add_student()
-
+        print("Student Information Added Sucessfully......")
+        print()
+    
     if a.lower() == "stop":
         print("program stoped...")
         break
